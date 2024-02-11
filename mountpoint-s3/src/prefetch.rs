@@ -139,7 +139,7 @@ impl Default for PrefetcherConfig {
             // waiting for the readahead hurts random IO. So we add 128k to the first request size
             // to avoid the latency hit of the second request.
             first_request_size: 1 * 1024 * 1024 + 128 * 1024,
-            max_request_size: 2 * 1024 * 1024 * 1024,
+            max_request_size: 64 * 1024 * 1024,
             sequential_prefetch_multiplier: 8,
             read_timeout: Duration::from_secs(60),
             // We want these large enough to tolerate a single out-of-order Linux readahead, which
